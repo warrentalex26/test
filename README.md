@@ -23,3 +23,7 @@ This project didnt have unit test because i didnt have time to build it. i might
 ### `IMPORTANTS NOTES`
 
 Assets were not displayed in my browser in the website reign so, i build this site with SCSS without framework for design like bootstrap, foundation, tailwind, etc.
+
+![alt text](https://i.imgur.com/lmlqt4C.png)
+![alt text](https://i.imgur.com/IH7HTnu.png)
+![alt text](https://i.imgur.com/iF0Culk.png)
