@@ -1,0 +1,22 @@
+$selected-color: #1897FF;
+
+.landing-tab-selector{
+  li{
+    border: 2px solid #E9E9E9;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #858585;
+    padding: 5px 20px;
+    display: inline-block;
+    &:first-child{
+      border-radius: 4px 0 0 4px;
+    }
+    &:last-child{
+      border-radius: 0 4px 4px 0;
+    }
+    &.active{
+      border-color: $selected-color;
+      color: $selected-color;
+    }
+  }
+}
