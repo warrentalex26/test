@@ -5,7 +5,9 @@ function Header(props) {
     return (
         <header className={`landing-header`}>
             <div>
-                <h2>HACKER NEWS</h2>
+                <span className={"HACKER-NEWS"}>
+                      HACKER NEWS
+                </span>
             </div>
         </header>
     );

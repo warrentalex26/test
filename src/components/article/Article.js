@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import './Article.scss';
 import moment from 'moment';
 
 function Article(article) {
+
+    const [image, setImage] = useState('');
 
     const tranformDate = (date) =>{
         const newDate = moment(date).format('YYYY-MM-DD h:mm:ss a')
@@ -20,13 +22,17 @@ function Article(article) {
         return null
     }
 
+    const changeIMage = (article) => {
+        console.log(article)
+    }
+
     const setFavorite = (article) => {
+        console.log(article)
         let arrayData = []
         let getData = getDataFromLocalStorage()
         if (getData){
             arrayData.push(...getData)
             arrayData.push(article)
-            console.log(arrayData)
             return localStorage.setItem('article', JSON.stringify(arrayData))
         }
         localStorage.setItem('article', JSON.stringify([article]))
@@ -36,13 +42,13 @@ function Article(article) {
         <article>
             <a target="_blank" href={article.article.story_url}>
                 <section>
-                    <span>{tranformDate(article.article.created_at)} hours ago by {article.article.author}</span>
+                    <img src={"./assets/iconmonstr-time-2.png"} className="clock"/><span> {tranformDate(article.article.created_at)} hours ago by {article.article.author}</span>
                     <p>{article.article.story_title}</p>
                 </section>
             </a>
             <aside><span onClick={() => {
                 setFavorite(article.article)
-            }}><img src={"./assets/iconmonstr-favorite-2.png"}/></span></aside>
+            }}><img src={'./assets/iconmonstr-favorite-2.png'}/></span></aside>
         </article>
     );
 }

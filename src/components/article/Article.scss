@@ -11,7 +11,7 @@
     margin: 0 40px 30px 0;
     opacity: 0.8;
     border-radius: 6px;
-    border: solid 2px #D1D1D1;
+    border: solid 1px #979797;
     background-color: #fff;
     box-sizing: border-box;
     justify-content: space-between;
@@ -25,6 +25,26 @@
 
       section {
         padding: 13px 0 13px 26px;
+          span{
+            color: #767676 !important;
+            font-family: Roboto;
+            font-weight: 400;
+            font-size: 11px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+          }
+          p{
+            font-family: Roboto;
+            font-size: 14px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.43;
+            color: #606060;
+          }
       }
     }
 

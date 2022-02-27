@@ -63,12 +63,13 @@ function Pagination({_currentPage = 1, _totalItems, _onChangePage = () => {}}) {
             <ul className="pagination">
                 <li><a onClick={() => {
                     setCurrentPage(1)
+                    _onChangePage(1);
                 }} rel="first">First</a></li>
                 <li><a onClick={() => {
                     prevPage()
                 }} rel="prev">Previous</a></li>
                 {
-                    [...Array(bulk)].map((e, i) => {
+                    [...Array(bulk || 6)].map((e, i) => {
                         return <li>
                             <a
                                 className={`${currentPage === currentPage + i ? 'active' : ''}`}
@@ -84,6 +85,7 @@ function Pagination({_currentPage = 1, _totalItems, _onChangePage = () => {}}) {
                 }} rel="next">Next</a></li>
                 <li><a onClick={() => {
                     setCurrentPage(_totalItems)
+                    _onChangePage(_totalItems);
                 }} rel="last">Last</a></li>
             </ul>
         </nav>

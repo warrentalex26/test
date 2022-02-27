@@ -30,7 +30,7 @@ function LandingPage(props) {
         const response = await api.getData(query, page)
         const data = await response.json()
 
-            setArticlesTotal(data.nbPages ? data.nbPages : 0 )
+        setArticlesTotal(data.nbPages ? data.nbPages : 0 )
         return (data.hits) ? filterData(data.hits) : null
     }
 
@@ -51,6 +51,7 @@ function LandingPage(props) {
                     story_url: data.story_url,
                     created_at: data.created_at,
                     story_id: data.story_id,
+                    isFavorite: false
                 }
             });
             return setArticles(newData)
