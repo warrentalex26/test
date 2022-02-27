@@ -24,7 +24,7 @@ const Favorites = () => {
         <section className="data-fav">
             {favArticles.map((article) => {
                 return(
-                    <article key={article.story_id}>
+                    <article key={article.objectID}>
                         <a target="_blank" href={article.story_url}>
                             <section>
                                 <span>{(article.created_at)} hours ago by {article.author}</span>

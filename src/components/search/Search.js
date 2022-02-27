@@ -2,9 +2,6 @@ import React, {useState} from "react";
 import './Search.scss';
 import Localstorage from "../../services/Localstorage"
 
-export const defaultItem = 'angular';
-
-
 function Navigation(props) {
     const localstorage = new Localstorage();
     const [selected, setSelected] = useState(localstorage.get("search") ?? 'angular');

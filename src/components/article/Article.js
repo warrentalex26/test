@@ -1,10 +1,24 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './Article.scss';
 import moment from 'moment';
 import Localstorage from "../../services/Localstorage"
 
 function Article(article) {
     const localstorage = new Localstorage();
+    const [image, setimage] = useState('./assets/iconmonstr-favorite-2.png')
+
+    useEffect(() => {
+        setImageFilter()
+    }, []);
+
+    const setImageFilter = () => {
+        const getDataFromLocalStorage = localstorage.get('article')
+        getDataFromLocalStorage.filter(element => {
+            if (element.objectID === article.article.objectID){
+                setimage('./assets/iconmonstr-favorite-3.png')
+            }
+        })
+    }
 
     const tranformDate = (date) =>{
         const newDate = moment(date).format('YYYY-MM-DD h:mm:ss a')
@@ -14,7 +28,11 @@ function Article(article) {
     }
 
     const removeDuplicates = (originalArray) => {
-        return Object.values(originalArray.reduce((acc,cur)=>Object.assign(acc,{[cur.story_id]:cur}),{}))
+        return Object.values(originalArray.reduce((acc,cur)=>Object.assign(acc,{[cur.objectID]:cur}),{}))
+    }
+    
+    const setImageFavorite = () => {
+      setimage('./assets/iconmonstr-favorite-3.png')
     }
 
     const setFavorite = (article) => {
@@ -24,6 +42,7 @@ function Article(article) {
             arrayData.push(...getData)
             arrayData.push(article)
             const removeDuplicate = removeDuplicates(arrayData)
+            setImageFavorite()
             return localstorage.set('article', removeDuplicate)
         }
         localstorage.set('article', ([article]))
@@ -39,7 +58,7 @@ function Article(article) {
             </a>
             <aside><span onClick={() => {
                 setFavorite(article.article)
-            }}><img src={'./assets/iconmonstr-favorite-2.png'}/></span></aside>
+            }}><img src={image}/></span></aside>
         </article>
     );
 }
