@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import './Article.scss';
 import moment from 'moment';
+import Localstorage from "../../services/Localstorage"
 
 function Article(article) {
-
-    const [image, setImage] = useState('');
+    const localstorage = new Localstorage();
 
     const tranformDate = (date) =>{
         const newDate = moment(date).format('YYYY-MM-DD h:mm:ss a')
@@ -13,29 +13,20 @@ function Article(article) {
         return getLastNumber.charAt(getLastNumber.length - 1)
     }
 
-    const getDataFromLocalStorage = () => {
-        const validate = localStorage.getItem('article')
-        if (validate){
-            const getData = JSON.parse(validate)
-            return getData
-        }
-        return null
-    }
-
     const removeDuplicates = (originalArray) => {
         return Object.values(originalArray.reduce((acc,cur)=>Object.assign(acc,{[cur.story_id]:cur}),{}))
     }
 
     const setFavorite = (article) => {
         let arrayData = []
-        let getData = getDataFromLocalStorage()
+        let getData = localstorage.get('article')
         if (getData){
             arrayData.push(...getData)
             arrayData.push(article)
             const removeDuplicate = removeDuplicates(arrayData)
-            return localStorage.setItem('article', JSON.stringify(removeDuplicate))
+            return localstorage.set('article', removeDuplicate)
         }
-        localStorage.setItem('article', JSON.stringify([article]))
+        localstorage.set('article', ([article]))
     }
 
     return (

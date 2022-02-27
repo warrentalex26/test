@@ -7,14 +7,18 @@ import Article from "../../components/article/Article";
 import Api from "../../services/Api"
 import './LandingPage.scss'
 import Favorites from "../../components/favorites/Favorites";
+import Localstorage from "../../services/Localstorage"
 
 function LandingPage(props) {
 
+    const localstorage = new Localstorage();
+    const api = new Api();
+
     const [articles, setArticles] = useState([]);
     const [articleTotal, setArticlesTotal] = useState(0);
-    const [valueSelect, setValueSelect] = useState('angular')
+    const [valueSelect, setValueSelect] = useState(localstorage.get("search") ?? 'angular')
     const [tabSelect, setTabSelect] = useState('all')
-    const api = new Api();
+
 
     const handleSelectChange = (value = '') => {
         setValueSelect(value)
@@ -27,11 +31,14 @@ function LandingPage(props) {
 
 
     const fetchData = async (query = '', page = 0) => {
-        const response = await api.getData(query, page)
-        const data = await response.json()
-
-        setArticlesTotal(data.nbPages ? data.nbPages : 0 )
-        return (data.hits) ? filterData(data.hits) : null
+        try {
+            const response = await api.getData(query, page)
+            const data = await response.json()
+            setArticlesTotal(data.nbPages ? data.nbPages : 0 )
+            return (data.hits) ? filterData(data.hits) : null
+        }catch (error){
+            return alert(`Ups, we have a error => ${error}`)
+        }
     }
 
     const TabSelected = (tab) =>{

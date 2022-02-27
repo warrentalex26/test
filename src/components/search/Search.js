@@ -1,11 +1,13 @@
 import React, {useState} from "react";
 import './Search.scss';
+import Localstorage from "../../services/Localstorage"
 
 export const defaultItem = 'angular';
 
-function Navigation(props) {
 
-    const [selected, setSelected] = useState(defaultItem);
+function Navigation(props) {
+    const localstorage = new Localstorage();
+    const [selected, setSelected] = useState(localstorage.get("search") ?? 'angular');
 
     const options = [
         {
@@ -29,6 +31,7 @@ function Navigation(props) {
         <div className="search-cnt">
             <select id="frameworks" onChange={(e)=>{
                 const val = e.target.value;
+                localstorage.set('search', val)
                 setSelected(val)
                 props.onChange(val)
             }} value={selected}>

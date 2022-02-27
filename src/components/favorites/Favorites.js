@@ -1,19 +1,20 @@
 import React, {useEffect, useState} from 'react'
 import './Favorites.scss'
+import Localstorage from "../../services/Localstorage"
 
 const Favorites = () => {
-
-    const [favArticles, setFavArticles] = useState(JSON.parse(localStorage.getItem("article")) ?? []);
+    const localstorage = new Localstorage();
+    const [favArticles, setFavArticles] = useState(localstorage.get("article") ?? []);
 
     useEffect(() => {
-        setFavArticles(JSON.parse(localStorage.getItem("article")) ?? [])
+        setFavArticles(localstorage.get("article") ?? [])
     }, []);
 
     const removeFromFavorites = (article) => {
         if (favArticles){
             const data = favArticles.filter(element => element.story_id !== article.story_id)
             setFavArticles(data)
-            localStorage.setItem('article', JSON.stringify(data))
+            localstorage.set('article', data)
         }
         return []
     }
