@@ -70,7 +70,7 @@ function Pagination({_currentPage = 1, _totalItems, _onChangePage = () => {}}) {
                 }} rel="prev">Previous</a></li>
                 {
                     [...Array(bulk || 6)].map((e, i) => {
-                        return <li>
+                        return <li key={i}>
                             <a
                                 className={`${currentPage === currentPage + i ? 'active' : ''}`}
                                 onClick={(e) => {

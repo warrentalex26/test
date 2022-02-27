@@ -22,18 +22,18 @@ function Article(article) {
         return null
     }
 
-    const changeIMage = (article) => {
-        console.log(article)
+    const removeDuplicates = (originalArray) => {
+        return Object.values(originalArray.reduce((acc,cur)=>Object.assign(acc,{[cur.story_id]:cur}),{}))
     }
 
     const setFavorite = (article) => {
-        console.log(article)
         let arrayData = []
         let getData = getDataFromLocalStorage()
         if (getData){
             arrayData.push(...getData)
             arrayData.push(article)
-            return localStorage.setItem('article', JSON.stringify(arrayData))
+            const removeDuplicate = removeDuplicates(arrayData)
+            return localStorage.setItem('article', JSON.stringify(removeDuplicate))
         }
         localStorage.setItem('article', JSON.stringify([article]))
     }

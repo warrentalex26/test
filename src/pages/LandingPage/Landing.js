@@ -88,7 +88,7 @@ function LandingPage(props) {
                                 <section className={`data-cnt`}>
                                     {
                                         articles.map((article, i) => {
-                                            return <Article article={article}/>
+                                            return <Article key={i} article={article}/>
                                         })
                                     }
                                 </section>
