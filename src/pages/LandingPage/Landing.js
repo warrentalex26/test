@@ -56,7 +56,6 @@ function LandingPage(props) {
 
     const filterData = (data = []) => {
         const removeData = removeDatawithoutAttributes(data)
-        console.log(removeData)
         if (removeData.length){
             const newData = removeData.map(data => {
                 return {
