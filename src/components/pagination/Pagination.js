@@ -86,6 +86,7 @@ function Pagination({_currentPage = 1, _totalItems, _onChangePage = () => {}}) {
                 <li><a onClick={() => {
                     setCurrentPage(_totalItems)
                     _onChangePage(_totalItems);
+                    setBulk(1)
                 }} rel="last">Last</a></li>
             </ul>
         </nav>

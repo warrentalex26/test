@@ -24,12 +24,18 @@ const Favorites = () => {
     return (
 
         <section className="data-fav">
+            {(!favArticles.length > 0 ) &&
+                <h2>No favorites selected</h2>
+            }
             {favArticles.map((article) => {
                 return(
                     <article key={article.objectID}>
                         <a target="_blank" href={article.story_url}>
                             <section>
-                                <img src={"./assets/iconmonstr-time-2.png"} className="clock"/><span>{helpers.tranformDate(article.created_at)} hours ago by{article.author}</span>
+                                <div className="b-align">
+                                    <img src={"./assets/iconmonstr-time-2.png"} className="clock"/>
+                                    <span>{helpers.tranformDate(article.created_at)} hours ago by{article.author}</span>
+                                </div>
                                 <p>{article.story_title}</p>
                             </section>
                         </a>
