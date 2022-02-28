@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 80px;
+  margin: 80px 0 0 40px;
 
   > article {
     display: flex;
     width: calc(50% - 40px);
     position: relative;
-    height: 160px;
+    height: 130px;
     margin: 0 40px 30px 0;
     opacity: 0.8;
     border-radius: 6px;
@@ -16,6 +16,7 @@
     background-color: #fff;
     box-sizing: border-box;
     justify-content: space-between;
+    align-items: center;
 
     &:hover{
       opacity: 50%;
@@ -23,9 +24,33 @@
 
     a {
       width: calc(100% - 66px);
-
       section {
         padding: 13px 0 13px 26px;
+        span {
+          width: 101px;
+          height: 13px;
+          margin: 16px 0px;
+          font-family: Roboto;
+          font-size: 11px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: #606060;
+        }
+        p{
+          height: 40px;
+          margin: 6px 16px 14px 0;
+          font-family: Roboto;
+          font-size: 14px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.43;
+          letter-spacing: 0.25px;
+          color: #606060;
+        }
       }
     }
 
@@ -41,5 +66,36 @@
       align-items: center;
       justify-content: center;
     }
+  }
+}
+
+@media (max-width: 872px) {
+  .data-fav article{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 764px) {
+  .data-fav > article a section p{
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 316px) {
+  .data-fav > article{
+    display: contents;
+    a{
+      width: 100%;
+    }
+    aside{
+      width: 100%;
+    }
+  }
+
+  .data-cnt > article a section p{
+    display: none;
   }
 }

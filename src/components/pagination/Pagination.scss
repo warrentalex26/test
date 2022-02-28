@@ -1,6 +1,7 @@
 .pagination-cnt{
   padding-bottom: 20px;
   text-align: center;
+  margin-top: 50px;
   .pagination{
     > li{
       cursor: pointer;
@@ -12,12 +13,35 @@
         padding: 6px 12px 4px;
         border-radius: 6px;
         border: solid 1px #d9d9d9;
-        background-color: #fff;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.57;
+        letter-spacing: normal;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.65);
         &.active{
           color: #fff;
           background-color: #1890ff;
         }
       }
     }
+  }
+}
+
+@media (max-width: 610px) {
+  .pagination-cnt .pagination > li:first-child{
+    display: none;
+  }
+  .pagination-cnt .pagination > li:last-child{
+    display: none;
+  }
+}
+
+@media (max-width: 464px) {
+  .pagination-cnt .pagination li{
+    margin-bottom: 13px;
   }
 }

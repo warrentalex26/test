@@ -9,7 +9,11 @@
   }
 }
 
-
-select#frameworks option[value="angular"]   { background-image:url('https://pbs.twimg.com/media/EldNTDMXIAMw1CU.jpg');   }
-//select#frameworks option[value="reacjs"] { background-image:url(female.png); }
-//select#frameworks option[value="vuejs"] { background-image:url(others.png); }
+@media (max-width: 872px) {
+  .search-cnt{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

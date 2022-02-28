@@ -20,3 +20,12 @@
     margin: 0;
   }
 }
+
+@media (max-width: 872px) {
+  .HACKER-NEWS{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

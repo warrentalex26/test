@@ -59,7 +59,6 @@ function LandingPage(props) {
                     created_at: data.created_at,
                     story_id: data.story_id,
                     objectID: data.objectID,
-                    isFavorite: false
                 }
             });
             return setArticles(newData)

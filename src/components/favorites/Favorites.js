@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import './Favorites.scss'
 import Localstorage from "../../services/Localstorage"
+import Helpers from "../../services/Helpers"
 
 const Favorites = () => {
+    const helpers = new Helpers()
     const localstorage = new Localstorage();
     const [favArticles, setFavArticles] = useState(localstorage.get("article") ?? []);
 
@@ -27,7 +29,7 @@ const Favorites = () => {
                     <article key={article.objectID}>
                         <a target="_blank" href={article.story_url}>
                             <section>
-                                <span>{(article.created_at)} hours ago by {article.author}</span>
+                                <img src={"./assets/iconmonstr-time-2.png"} className="clock"/><span>{helpers.tranformDate(article.created_at)} hours ago by{article.author}</span>
                                 <p>{article.story_title}</p>
                             </section>
                         </a>
