@@ -11,22 +11,15 @@ function Article(article) {
 
     useEffect(() => {
         setImageFilter()
-    }, [article]);
+    }, []);
 
     const setImageFilter = () => {
         const getDataFromLocalStorage = localstorage.get('article')
         getDataFromLocalStorage.filter(element => {
             if (element.objectID == article.article.objectID){
-                return setimage('./assets/iconmonstr-favorite-3.png')
+                setimage('./assets/iconmonstr-favorite-3.png')
             }
         })
-    }
-
-    const tranformDate = (date) =>{
-        const newDate = moment(date).format('YYYY-MM-DD h:mm:ss a')
-        const splitDate = newDate.split(':')
-        const getLastNumber =  splitDate[0]
-        return getLastNumber.charAt(getLastNumber.length - 1)
     }
 
     const removeDuplicates = (originalArray) => {
