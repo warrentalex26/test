@@ -49,9 +49,16 @@ function LandingPage(props) {
         fetchData(valueSelect, pageNumber)
     }
 
-    const filterData = (data) => {
-        if (data.length){
-            const newData = data.map(data => {
+    const removeDatawithoutAttributes = (data) => {
+        const newData = data.filter( (element) => element.story_title || element.story_url !== null )
+        return newData
+    }
+
+    const filterData = (data = []) => {
+        const removeData = removeDatawithoutAttributes(data)
+        console.log(removeData)
+        if (removeData.length){
+            const newData = removeData.map(data => {
                 return {
                     author: data.author,
                     story_title: data.story_title,

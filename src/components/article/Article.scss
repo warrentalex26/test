@@ -25,6 +25,12 @@
 
       section {
         padding: 13px 0 13px 26px;
+        .b-align{
+          display: flex;
+          align-items: center;
+          img{
+            margin-right: 5px;
+          }
           span{
             color: #767676 !important;
             font-family: Roboto;
@@ -36,6 +42,7 @@
             line-height: normal;
             letter-spacing: normal;
           }
+        }
           p{
             font-family: Roboto;
             font-size: 14px;

@@ -47,7 +47,10 @@ function Article(article) {
         <article>
             <a target="_blank" href={article.article.story_url}>
                 <section>
-                    <img src={"./assets/iconmonstr-time-2.png"} className="clock"/><span>{helpers.tranformDate(article.article.created_at)} hours ago by {article.article.author}</span>
+                    <div className="b-align">
+                        <img src={"./assets/iconmonstr-time-2.png"} className="clock"/>
+                        <span>{helpers.tranformDate(article.article.created_at)} hours ago by {article.article.author}</span>
+                    </div>
                     <p>{article.article.story_title}</p>
                 </section>
             </a>
