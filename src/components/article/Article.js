@@ -14,7 +14,7 @@ function Article(article) {
     }, []);
 
     const setImageFilter = () => {
-        const getDataFromLocalStorage = localstorage.get('article')
+        const getDataFromLocalStorage = localstorage.get('article') || []
         getDataFromLocalStorage.filter(element => {
             if (element.objectID == article.article.objectID){
                 setimage('./assets/iconmonstr-favorite-3.png')
